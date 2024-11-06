@@ -1,0 +1,117 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "MonoLisa";
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(21, 18, 27, 0);
+    color: #F8F8F2;
+    
+}
+
+
+#custom-launch_wofi,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile,
+#custom-weather,
+#custom-myhyprv,
+#custom-activewindow,
+#window,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#temperature,
+#workspaces,
+#backlight {
+    background: rgba(39, 41, 53, 0.8);
+    
+    opacity: 0.8;
+    padding: 0px 10px;
+    
+    margin-top: 10px;
+    border-style: solid;
+    border-color: #F8F8F2;
+    border-width: 1px;
+
+}
+
+#custom-lock_screen, #temperature, #battery, #custom-launch_wofi, #cpu {
+    border-radius: 35px 0px 0px 35px;
+    border-right: transparent;
+
+}
+
+#custom-light_dark, #custom-power_btn, #workspaces, #pulseaudio.microphone, #disk, #pulseaudio, #custom-power_profile {
+    border-radius: 0px 35px 35px 0px;
+    margin-right: 10px;
+    border-left: transparent;
+}
+
+#temperature.critical {
+    color: #e92d4d;
+}
+
+
+#backlight {
+    color: #F1FA8C;
+    border-right: 0px;
+    border-left: 0px;
+}
+
+#custom-power_profile {
+    color: #FFB86C;
+    border-left: 0px;
+    border-left: transparent;
+}
+
+
+#custom-updates,
+#clock,
+#tray,
+#window,
+#custom-activewindow {
+    border-radius: 35px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#memory {
+    border-left: transparent;
+    border-right: transparent;
+    color: #cba6f7;
+
+} 
+#cpu {
+    color: #e92d4d;
+}
+
+#disk {
+    color: #FFB86C;
+}
+#pulseaudio {
+    color: #8BE9FD;
+    border-left: 0px;
+}
+
+#pulseaudio.microphone {
+    color: #cba6f7;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#battery {
+    color: #50FA7B;
+   
+}

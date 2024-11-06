@@ -1,0 +1,108 @@
+/* pywal-wlogout 
+:root {
+--background: #282a36;	
+--foreground: #f8f8f2;
+--comment: #6272a4;
+--cyan: #8be9fd;
+--selection: #44475a;
+--red: #ff5555;
+--orange: #ffb86c;
+--yellow: #f1fa8c;
+--green: #50fa7b;
+--purple: #bd93f9;
+--pink: #ff79c6;
+--blue: #8be9fd;
+--magenta: #ff79c6;
+
+--color0: #282a36;
+--color1: #ff5555;
+--color2: #50fa7b;
+--color3: #f1fa8c;
+--color4: #bd93f9;
+--color5: #8be9fd;
+--color6: #ff79c6;
+--color7: #f8f8f2;
+--color8: #6272a4;
+--color9: #ff6e6e;
+--color10: #69ff94;
+--color11: #ffffa5;
+--color12: #d6acff;
+--color13: #ff92df;
+--color14: #a4ffff;
+--color15: #ffffff;
+}
+*/
+
+window {
+  font-family: MonoLisa;
+  font-size: 16pt;
+  color: #f8f8f2; /* text */
+  background-color: rgba(40, 42, 54, 0.2);
+} 
+
+button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  background-color: transparent;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s ease-in;
+  box-shadow: 0 0 10px 2px transparent;
+  border-radius: 36px;
+  margin: 10px;
+  box-shadow: none;
+  border: none;
+  
+}
+
+button:focus {
+  box-shadow: none;
+  background-size : 25%;
+}
+
+button:hover {
+  background-size: 25%;
+  box-shadow: 0 0 10px 3px rgba(0,0,0,.4);
+  background-color: #ff79c6;
+  color: transparent;
+  transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
+}
+
+
+
+
+#shutdown {
+  background-image: image(url("./icons/power.png"));
+}
+#shutdown:hover {
+background-image: image(url("./icons/power-hover.png"));
+}
+
+#logout {
+  background-image: image(url("./icons/logout.png"));
+
+}
+#logout:hover {
+background-image: image(url("./icons/logout-hover.png"));
+}
+
+#reboot {
+  background-image: image(url("./icons/restart.png"));
+}
+#reboot:hover {
+background-image: image(url("./icons/restart-hover.png"));
+}
+
+#lock {
+  background-image: image(url("./icons/lock.png"));
+}
+#lock:hover {
+background-image: image(url("./icons/lock-hover.png"));
+}
+
+#hibernate {
+  background-image: image(url("./icons/hibernate.png"));
+}
+#hibernate:hover {
+background-image: image(url("./icons/hibernate-hover.png"));
+}

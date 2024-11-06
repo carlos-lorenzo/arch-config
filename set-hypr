@@ -42,7 +42,6 @@ install_stage=(
     kitty 
     mako 
     waybar
-    swww 
     swaylock-effects 
     wofi 
     wlogout 
@@ -71,7 +70,7 @@ install_stage=(
     noto-fonts-emoji 
     lxappearance 
     xfce4-settings
-    nwg-look-bin
+    nwg-look
     sddm
 )
 

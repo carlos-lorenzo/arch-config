@@ -1,0 +1,1 @@
+sdt stores configuration files for sddm - login manager
