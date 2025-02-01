@@ -73,7 +73,7 @@ install_stage=(
     xfce4-settings
     nwg-look
     sddm
-    conda
+    miniconda3
     visual-studio-code-bin
     nodejs
     npm
@@ -192,7 +192,7 @@ fi
 
 #### Check for package manager ####
 if [ ! -f /sbin/yay ]; then  
-    echo -en "$CNT - Configuering yay."
+    echo -en "$CNT - Configuring yay."
     git clone https://aur.archlinux.org/yay.git &>> $INSTLOG
     cd yay
     makepkg -si --noconfirm &>> ../$INSTLOG &
@@ -264,6 +264,9 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     # Setup conda envs
     echo -e "$CNT - Setting up conda envs..."
+    conda env create -f envs/dj.yml
+    conda env create -f envs/ml.yml
+
 fi
 
 ### Copy Config Files ###
