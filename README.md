@@ -1,4 +1,7 @@
-# HyprV4
+# Arch Config - SDT Fork
+My own visual config on sol does techs hypv4
+
+Original README:
 This is V4 of the Hyprland install script
 
 It contains a collection of dot config files for hyprland with a simple install script.
