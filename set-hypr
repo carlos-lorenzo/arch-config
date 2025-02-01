@@ -262,10 +262,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     echo -e "$CNT - Cleaning out conflicting xdg portals..."
     yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk &>> $INSTLOG
 
-    # Setup conda envs
-    echo -e "$CNT - Setting up conda envs..."
-    conda env create -f envs/dj.yml
-    conda env create -f envs/ml.yml
+    
 
 fi
 
