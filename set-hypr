@@ -76,14 +76,12 @@ install_stage=(
     xfce4-settings
     nwg-look
     sddm
-    miniconda3
     visual-studio-code-bin
     nodejs
     npm
     spotify
     google-chrome
     neofetch
-    hyprpaper
     man
 )
 
@@ -301,14 +299,18 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     fi
 
     # Copy the SDDM theme
-
     echo -e "$CNT - Setting up the login screen."
     read -rep $'[\e[1;33mACTION\e[0m] - Would you like to setup the login screen (y,n) ' LGNS
     if [[ $LGNS == "Y" || $LGNS == "y" ]]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
         fi
     
-    
+    echo -e "$CNT - Setting up the wallpapers."
+    mkdir ~/images
+    mkdir ~/images/wallpapers
+    cp -a config/wallpapers/. ~/images/wallpapers
+    rm -R config/wallpapers
+
     # stage the .desktop file
     sudo cp Extras/hyprland.desktop /usr/share/wayland-sessions/
 
