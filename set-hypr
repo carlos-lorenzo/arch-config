@@ -285,7 +285,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         DIRPATH=~/.config/$DIR
         if [ -d "$DIRPATH" ]; then 
             echo -e "$CAT - Config for $DIR located, backing up."
-            mv $DIRPATH $DIRPATH-back &>> $INSTLOG
+            cp $DIRPATH $DIRPATH-back &>> $INSTLOG
             echo -e "$COK - Backed up $DIR to $DIRPATH-back."
         fi
 
