@@ -9,6 +9,8 @@ $git_status\
 [](fg:#394260 bg:#212736)\
 $nodejs\
 $rust\
+$conda\
+$python\
 $golang\
 $php\
 [](fg:#212736 bg:#1d2230)\
@@ -62,4 +64,23 @@ disabled = true
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[conda]
+symbol = "  "
+format = '[[$symbol$environment](fg:bold green bg:#212736)]($style)'
+
+[python]
+symbol = " "
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+detect_extensions = ["py"]
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+version_format = "v${raw}"
+#pyenv_version_name = true
+
+
+
+
+
+
 

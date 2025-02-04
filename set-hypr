@@ -275,8 +275,7 @@ read -rep $'[\e[1;33mACTION\e[0m] - Would you like to copy config files? (y,n) '
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
     echo -e "$CNT - Copying config files..."
 
-    # copy the config files directory
-    cp -a config/. ~/.config/
+    
 
     # Setup each appliaction
     # check for existing config folders and backup 
@@ -292,6 +291,10 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         # make new empty folders
         mkdir -p $DIRPATH &>> $INSTLOG
     done
+
+    # copy the config files directory
+    cp -a config/. ~/.config/
+
 
     # add the Nvidia env file to the config (if needed)
     if [[ "$ISNVIDIA" == true ]]; then
