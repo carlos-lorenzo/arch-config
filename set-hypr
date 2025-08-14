@@ -26,6 +26,7 @@ prep_stage=(
     cliphist 
     python-requests 
     pacman-contrib
+    python-cryptography
 )
 
 #software for nvidia GPU only
@@ -80,6 +81,8 @@ install_stage=(
     google-chrome
     neofetch
     man
+    miniconda3
+    discord
 )
 
 for str in ${myArray[@]}; do
@@ -308,8 +311,8 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     echo -e "$CNT - Setting up the wallpapers."
     mkdir ~/images
     mkdir ~/images/wallpapers
-    cp -a config/wallpapers/. ~/images/wallpapers
-    rm -R config/wallpapers
+    cp -a /wallpapers/. ~/images/wallpapers
+    rm -R /wallpapers
 
     # stage the .desktop file
     sudo cp Extras/hyprland.desktop /usr/share/wayland-sessions/
@@ -361,6 +364,13 @@ if [[ $ROG == "Y" || $ROG == "y" ]]; then
     # add the ROG keybinding file to the config
     echo -e "\nsource = ~/.config/hypr/rog-g15-strix-2021-binds.conf" >> ~/.config/hypr/hyprland.conf
 fi
+
+## Include extra bashrc settings ##
+echo -e "$CNT - Updating .bashrc with extra settings..."
+echo -e '\nneofetch' >> ~/.bashrc
+echo -e '\nexport CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1' >> ~/.bashrc # Disable legacy OpenSSL support in cryptography
+echo -e '\n[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh' >> ~/.bashrc # Disable legacy OpenSSL support in cryptography
+
 
 ### Script is done ###
 echo -e "$CNT - Script had completed!"
