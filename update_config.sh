@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# filepath: /home/carlos/dev/arch-config/update_config.sh
+
+# Define the repository and target directory
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_DIR="$HOME/.config"
+
+# Pull the latest changes from the repository
+echo "Pulling the latest changes from the repository..."
+cd "$REPO_DIR" || exit
+git pull origin main
+
+# Sync the contents of the config directory
+echo "Syncing the repository's config directory with ~/.config..."
+rsync -av "$REPO_DIR/config/" "$CONFIG_DIR/"
+cp "$REPO_DIR/Extras/starship.toml" "$CONFIG_DIR/"
+
+echo "Update complete!"

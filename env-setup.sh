@@ -1,0 +1,6 @@
+#!/bin/bash
+# Include bashrc setup
+# Setup conda envs
+echo -e "$CNT - Setting up conda envs..."
+conda env create -f envs/dj.yml
+conda env create -f envs/ml.yml
