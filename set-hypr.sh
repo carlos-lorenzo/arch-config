@@ -86,11 +86,10 @@ install_stage=(
     discord
     bat
     fzf
+    docker
+    docker-compose
 )
 
-for str in ${myArray[@]}; do
-  echo $str
-done
 
 # set some colors
 CNT="[\e[1;36mNOTE\e[0m]"
@@ -106,13 +105,10 @@ INSTLOG="install.log"
 
 # function that would show a progress bar to the user
 show_progress() {
-    while ps | grep $1 &> /dev/null;
-    do
+    while pgrep -x "$1" &> /dev/null; do
         echo -n "."
         sleep 2
     done
-    echo -en "Done!\n"
-    sleep 2
 }
 
 # function that will test for a package and if not found it will attempt to install it
@@ -372,7 +368,7 @@ echo -e "$CNT - Updating .bashrc with extra settings..."
 echo -e '\nneofetch' >> ~/.bashrc
 echo -e '\nexport CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1' >> ~/.bashrc # Disable legacy OpenSSL support in cryptography
 echo -e '\n[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh' >> ~/.bashrc # Disable legacy OpenSSL support in cryptography
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+echo -e  '\nexport FZF_DEFAULT_OPTS=--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 ### Script is done ###
 echo -e "$CNT - Script had completed!"
