@@ -299,7 +299,12 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # copy the config files directory
     cp -a config/. ~/.config/
-
+    
+    if [ $(brightnessctl m) -eq 1 ]; then
+        # Set desktop version of waybar config
+        cat config/waybar/desktop_config.jsonc > ~/.config/waybar/config.jsonc
+        cat config/waybar/desktop_style.css > ~/.config/waybar/style.css
+    fi
 
     # add the Nvidia env file to the config (if needed)
     if [[ "$ISNVIDIA" == true ]]; then
