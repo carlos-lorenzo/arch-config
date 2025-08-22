@@ -1,23 +1,37 @@
 #!/usr/bin/env bash
 
-CURRENT_WALL=$(cat ~/.cache/current_wallpaper)
-NEW_WALL=$(find ~/images/wallpapers/ -type f | shuf -n 1)
+CURRENT_WALL_CACHE=$HOME/.cache/current_wallpaper
+HYPR_DIR=$HOME/.config/hypr/hyprpaper.conf
 
-HYPR_DIR=~/.config/hypr/hyprpaper.conf
+# Check if the current wallpaper exists
+if [[ -f $CURRENT_WALL_CACHE && -s $CURRENT_WALL_CACHE ]]; then
+    CURRENT_WALL=$(cat $CURRENT_WALL_CACHE)
+else
+    # If no current wallpaper exists, set a random one
+    CURRENT_WALL=$(find $HOME/images/wallpapers/ -type f | shuf -n 1)
+    echo $CURRENT_WALL > $CURRENT_WALL_CACHE
+fi
 
+# Select a new random wallpaper
+NEW_WALL=$(find $HOME/images/wallpapers/ -type f | shuf -n 1)
 
-echo '' > $(echo $HYPR_DIR)
+# Clear the hyprpaper configuration file
+echo '' > $HYPR_DIR
 
-echo "preload=$NEW_WALL" >> $(echo $HYPR_DIR)
+# Preload the new wallpaper
+echo "preload=$NEW_WALL" >> $HYPR_DIR
 
+# Set the wallpaper for each monitor
 for MONITOR_ID in $(hyprctl monitors | grep Monitor | awk '{print $2}'); do
-    echo "wallpaper=$MONITOR_ID,$NEW_WALL" >> $(echo $HYPR_DIR)
+    echo "wallpaper=$MONITOR_ID,$NEW_WALL" >> $HYPR_DIR
 done
 
-echo "splash=false" >> $(echo $HYPR_DIR)
+# Disable splash
+echo "splash=false" >> $HYPR_DIR
 
+# Update the current wallpaper cache
+echo $NEW_WALL > $CURRENT_WALL_CACHE
 
-cp -rf $NEW_WALL ~/.cache/current_wallpaper
-
+# Restart hyprpaper
 killall hyprpaper 
-hyprpaper &>/dev/null & disown
+hyprpaper &>/dev/null &

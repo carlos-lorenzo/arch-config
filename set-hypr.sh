@@ -316,8 +316,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     echo -e "$CNT - Setting up the wallpapers."
     mkdir ~/images
     mkdir ~/images/wallpapers
-    cp -a /wallpapers/. ~/images/wallpapers
-    rm -R /wallpapers
+    cp wallpapers/* ~/images/wallpapers
 
     # stage the .desktop file
     sudo cp Extras/hyprland.desktop /usr/share/wayland-sessions/
@@ -377,6 +376,8 @@ echo -e '\nneofetch' >> ~/.bashrc
 echo -e '\nexport CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1' >> ~/.bashrc # Disable legacy OpenSSL support in cryptography
 echo -e '\n[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh' >> ~/.bashrc # Disable legacy OpenSSL support in cryptography
 echo -e  '\nexport FZF_DEFAULT_OPTS=--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+
+./config/scripts/set_displays.sh &>> $INSTLOG
 
 ### Script is done ###
 echo -e "$CNT - Script had completed!"
