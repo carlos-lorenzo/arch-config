@@ -384,6 +384,17 @@ echo -e  '\nexport FZF_DEFAULT_OPTS=--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --c
 
 ./config/scripts/set_displays.sh &>> $INSTLOG
 
+
+read -rep $'[\e[1;33mACTION\e[0m] - Would you like to setup git name and email? (y,n) ' SET_CREDS
+if [[ $SET_CREDS == "Y" || $SET_CREDS == "y" ]]; then
+    read -rep $'[\e[1;33mACTION\e[0m] - Please enter your git name: ' GIT_NAME
+    read -rep $'[\e[1;33mACTION\e[0m] - Please enter your git email: ' GIT_EMAIL
+    git config --global user.name "$GIT_NAME"
+    git config --global user.email "$GIT_EMAIL"
+    echo -e "$CNT - Git name and email set."
+fi
+
+
 ### Script is done ###
 echo -e "$CNT - Script had completed!"
 if [[ "$ISNVIDIA" == true ]]; then 
