@@ -114,6 +114,7 @@ window#waybar {
 #pulseaudio.microphone {
     color: #cba6f7;
     border-right: 0px;
+    border-left: 1px solid #F8F8F2;
 }
 
 #battery {

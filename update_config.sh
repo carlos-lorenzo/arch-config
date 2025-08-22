@@ -21,6 +21,13 @@ git pull origin main
 # Sync the contents of the config directory
 echo "Syncing the repository's config directory with ~/.config..."
 rsync -avh --progress "$REPO_DIR/config/" "$CONFIG_DIR/"
+
+if [ $(brightnessctl m) -eq 1 ]; then
+    # Set desktop version of waybar config
+    cat config/waybar/desktop_config.jsonc > ~/.config/waybar/config.jsonc
+    cat config/waybar/desktop_style.css > ~/.config/waybar/style.css
+fi
+
 cp "$REPO_DIR/Extras/starship.toml" "$CONFIG_DIR/"
 
 echo "Update complete!"
