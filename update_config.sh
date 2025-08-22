@@ -19,7 +19,7 @@ cd "$REPO_DIR" || exit
 git pull origin main
 
 # Sync the contents of the config directory
-echo "Syncing the repository's config directory with ~/.config..."
+echo "Syncing the repository's config directory with ~/.config...\n Screen might flash"
 rsync -avh --progress "$REPO_DIR/config/" "$CONFIG_DIR/"
 
 if [ $(brightnessctl m) -eq 1 ]; then
@@ -29,5 +29,9 @@ if [ $(brightnessctl m) -eq 1 ]; then
 fi
 
 cp "$REPO_DIR/Extras/starship.toml" "$CONFIG_DIR/"
+
+# Apply display settings
+echo "Applying display settings..."
+.config/scripts/set_displays.sh
 
 echo "Update complete!"
