@@ -91,6 +91,11 @@ install_stage=(
 )
 
 
+
+for str in ${myArray[@]}; do
+  echo $str
+done
+
 # set some colors
 CNT="[\e[1;36mNOTE\e[0m]"
 COK="[\e[1;32mOK\e[0m]"
@@ -105,10 +110,13 @@ INSTLOG="install.log"
 
 # function that would show a progress bar to the user
 show_progress() {
-    while pgrep -x "$1" &> /dev/null; do
+    while ps | grep $1 &> /dev/null;
+    do
         echo -n "."
         sleep 2
     done
+    echo -en "Done!\n"
+    sleep 2
 }
 
 # function that will test for a package and if not found it will attempt to install it
@@ -276,7 +284,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # Setup each appliaction
     # check for existing config folders and backup 
-    for DIR in hypr kitty mako swaylock waybar wlogout wofi neofetch
+    for DIR in hypr kitty mako swaylock waybar wlogout wofi neofetch bat scripts
     do 
         DIRPATH=~/.config/$DIR
         if [ -d "$DIRPATH" ]; then 
