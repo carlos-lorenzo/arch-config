@@ -88,6 +88,7 @@ install_stage=(
     fzf
     docker
     docker-compose
+    docker-buildx
 )
 
 
