@@ -65,7 +65,7 @@ This config is powered by the following key packages:
 Clone this repository and follow this instructions to set up your environment.
 
 ```bash
-git clone https://github.com/yourusername/arch-config.git
+git clone https://github.com/carlos-lorenzo/arch-config.git
 cd arch-config
 chmod chmod u+x set-hypr.sh
 ./set-hypr.sh
