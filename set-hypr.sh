@@ -54,8 +54,6 @@ install_stage=(
     slurp 
     thunar 
     btop
-    firefox
-    thunderbird
     mpv
     pamixer 
     pavucontrol 
@@ -89,6 +87,9 @@ install_stage=(
     docker
     docker-compose
     docker-buildx
+    networkmanager-vpnc
+    smbclient
+    
 )
 
 
