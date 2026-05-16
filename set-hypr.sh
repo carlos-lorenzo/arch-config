@@ -78,7 +78,7 @@ install_stage=(
     npm
     spotify
     google-chrome
-    neofetch
+    fastfetch
     man
     miniconda3
     discord
@@ -286,7 +286,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # Setup each appliaction
     # check for existing config folders and backup 
-    for DIR in hypr kitty mako swaylock waybar wlogout wofi neofetch bat scripts
+    for DIR in hypr kitty mako swaylock waybar wlogout wofi neofetch bat scripts fastfetch
     do 
         DIRPATH=~/.config/$DIR
         if [ -d "$DIRPATH" ]; then 
@@ -379,7 +379,7 @@ fi
 
 ## Include extra bashrc settings ##
 echo -e "$CNT - Updating .bashrc with extra settings..."
-echo -e '\nneofetch' >> ~/.bashrc
+echo -e '\nfastfetch' >> ~/.bashrc
 echo -e '\nexport CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1' >> ~/.bashrc # Disable legacy OpenSSL support in cryptography
 echo -e '\n[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh' >> ~/.bashrc # Disable legacy OpenSSL support in cryptography
 echo -e  '\nexport FZF_DEFAULT_OPTS=--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
